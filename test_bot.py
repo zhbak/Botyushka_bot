@@ -27,10 +27,11 @@ def batuska_answer(message : telebot.types.Message):
     try:
         bot.reply_to(message, "Вспоминаю Библию... ⏳")
         output = gpt_message(message)
-        audio_generation(output)
-        with open('audio.mp3', 'rb') as audio_file:
-                # Отправляем голосовое сообщение пользователю
-                bot.send_voice(message.chat.id, audio_file)
+        #audio_generation(output)
+        #with open('audio.mp3', 'rb') as audio_file:
+         #       # Отправляем голосовое сообщение пользователю
+          #      bot.send_voice(message.chat.id, audio_file)
+        bot.reply_to(message, """{}""".format(output))
     except Exception as e:
         bot.reply_to(message, """Ботюшка в отпуске \U0001F680. Заходи через месяц.""")
         print(e)
